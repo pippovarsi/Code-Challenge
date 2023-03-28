@@ -6,14 +6,15 @@ import { Routes, Route } from "react-router-dom";
 
 const App = (): JSX.Element => {
   const [randomQuote, setRandomQuote] = useState([]);
-  const [generateRandomQuote, setGenerateRandomQuote] = useState(false);
+  const [generateRandomQuote, setGenerateRandomQuote] =
+    useState<boolean>(false);
 
   const client = axios.create({
     baseURL: "https://quote-garden.onrender.com/api/v3/",
   });
   useEffect(() => {
     const getRandomQuote = () => {
-      const response = client
+      client
         .get("quotes/random")
         .then((response) => setRandomQuote(response?.data?.data));
     };

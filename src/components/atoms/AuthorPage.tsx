@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Quote } from "src/types";
 import TextQuote from "./TextQuote";
 
 const AuthorPage = () => {
-  let { author }: string | undefined = useParams();
+  const { author } = useParams<string>();
   const [quotesByAuthor, setQuotesByAuthor] = useState([]);
 
   const client = axios.create({
@@ -20,7 +21,7 @@ const AuthorPage = () => {
 
       const searchParams = url.search;
 
-      const response = client
+      client
         .get(`quotes/${searchParams}`)
         .then((response) => setQuotesByAuthor(response?.data?.data));
     };
@@ -32,7 +33,7 @@ const AuthorPage = () => {
   return (
     <div>
       <h1 className="font-bold"> {author} </h1>
-      {quotesByAuthor?.map((quote, i) => {
+      {quotesByAuthor?.map((quote: Quote, i: number) => {
         return <TextQuote key={i} text={quote?.quoteText} />;
       })}
     </div>

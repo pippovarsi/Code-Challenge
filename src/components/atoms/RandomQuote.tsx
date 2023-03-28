@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Quote } from "src/types";
 import { Refresh } from "tabler-icons-react";
 import TextQuote from "./TextQuote";
 
 type RandomQuoteProps = {
-  randomQuote: never[];
+  randomQuote: Quote[];
   setGenerateRandomQuote?: React.Dispatch<React.SetStateAction<boolean>>;
-  isGenerateRandomQuote?: boolean;
+  isGenerateRandomQuote: boolean;
 };
 
 const RandomQuote = ({
