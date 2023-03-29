@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import AuthorPage from "components/atoms/AuthorPage";
+import AuthorPage from "components/molecules/AuthorPage";
 import RandomQuote from "components/atoms/RandomQuote";
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";

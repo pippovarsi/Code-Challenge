@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Quote } from "src/types";
-import TextQuote from "./TextQuote";
+import TextQuote from "../atoms/TextQuote";
 
 const AuthorPage = () => {
   const { author } = useParams<string>();
@@ -27,8 +27,6 @@ const AuthorPage = () => {
     };
     getAllQuotesByAuthor();
   }, [author]);
-
-  console.log(quotesByAuthor);
 
   return (
     <div>
