@@ -21,7 +21,7 @@ const RandomQuote = ({
   };
   return (
     <div>
-      {randomQuote?.map((quote, index) => {
+      {randomQuote?.map((quote: Quote, index: number) => {
         return (
           <div className="max-w-md flex-col mt-16" key={index}>
             <TextQuote text={quote?.quoteText} />

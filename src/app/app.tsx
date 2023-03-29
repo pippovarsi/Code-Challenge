@@ -10,7 +10,7 @@ const App = (): JSX.Element => {
     useState<boolean>(false);
 
   const client = axios.create({
-    baseURL: "https://quote-garden.onrender.com/api/v3/",
+    baseURL: import.meta.env.VITE_BASE_URL_API,
   });
   useEffect(() => {
     const getRandomQuote = () => {

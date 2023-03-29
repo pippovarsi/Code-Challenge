@@ -10,7 +10,7 @@ const AuthorPage = () => {
   const [quotesByAuthor, setQuotesByAuthor] = useState([]);
 
   const client = axios.create({
-    baseURL: "https://quote-garden.onrender.com/api/v3/",
+    baseURL: import.meta.env.VITE_BASE_URL_API,
   });
 
   useEffect(() => {
