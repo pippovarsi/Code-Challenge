@@ -2,12 +2,12 @@ import axios, { AxiosInstance } from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Quote } from "src/types";
+import { Quote, Root } from "src/types";
 import TextQuote from "../atoms/TextQuote";
 
 const AuthorPage = () => {
   const { author } = useParams<string>();
-  const [quotesByAuthor, setQuotesByAuthor] = useState([]);
+  const [quotesByAuthor, setQuotesByAuthor] = useState<Quote[]>([]);
 
   const client: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL_API,
@@ -22,7 +22,7 @@ const AuthorPage = () => {
       const searchParams = url.search;
 
       client
-        .get(`quotes/${searchParams}`)
+        .get<Root>(`quotes/${searchParams}`)
         .then((response) => setQuotesByAuthor(response?.data?.data));
     };
     getAllQuotesByAuthor();
