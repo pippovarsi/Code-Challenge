@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -9,15 +9,15 @@ const AuthorPage = () => {
   const { author } = useParams<string>();
   const [quotesByAuthor, setQuotesByAuthor] = useState([]);
 
-  const client = axios.create({
+  const client: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL_API,
   });
 
   useEffect(() => {
     const getAllQuotesByAuthor = () => {
-      const url = new URL(`${client.defaults.baseURL}`);
+      const url: URL = new URL(`${client.defaults.baseURL}`);
 
-      url.searchParams.set("author", author);
+      url.searchParams.set("author", author as string);
 
       const searchParams = url.search;
 

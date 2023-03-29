@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import AuthorPage from "components/atoms/AuthorPage";
 import RandomQuote from "components/atoms/RandomQuote";
 import React, { useEffect, useState } from "react";
@@ -9,9 +9,10 @@ const App = (): JSX.Element => {
   const [generateRandomQuote, setGenerateRandomQuote] =
     useState<boolean>(false);
 
-  const client = axios.create({
+  const client: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL_API,
   });
+
   useEffect(() => {
     const getRandomQuote = () => {
       client

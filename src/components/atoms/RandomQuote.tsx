@@ -6,7 +6,7 @@ import TextQuote from "./TextQuote";
 
 type RandomQuoteProps = {
   randomQuote: Quote[];
-  setGenerateRandomQuote?: React.Dispatch<React.SetStateAction<boolean>>;
+  setGenerateRandomQuote: React.Dispatch<React.SetStateAction<boolean>>;
   isGenerateRandomQuote: boolean;
 };
 
